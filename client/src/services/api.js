@@ -42,7 +42,8 @@ export class SMSWebSocket {
 
   connect() {
     try {
-      this.ws = new WebSocket('ws://localhost:5000');
+      // this.ws = new WebSocket('ws://localhost:5000');
+      this.ws = new WebSocket(API_BASE_URL);
       
       this.ws.onopen = () => {
         console.log('WebSocket connected');
