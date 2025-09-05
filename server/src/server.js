@@ -6,8 +6,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 // Import routes and middleware
-const smsRoutes = require('./routes/smsRoutes');
-const { apiLimiter } = require('./utils/rateLimiter');
+const smsRoutes = require('./routes/smsRoutes.js');
+const { apiLimiter } = require('./utils/rateLimiter.js');
 
 // Initialize Express app
 const app = express();
@@ -147,20 +147,20 @@ async function startServer() {
     await connectToDatabase();
     
     // Start the server - Listen on 0.0.0.0 for external access
-    app.listen(PORT, '0.0.0.0', () => {
-      console.log(`🚀 SMS Backend Server is running on port ${PORT}`);
-      console.log(`📱 API Base URL: http://localhost:${PORT}/api`);
-      console.log(`🏥 Health Check: http://localhost:${PORT}/api/health`);
-      console.log(`📊 Status: http://localhost:${PORT}/api/status`);
-      console.log('');
-      console.log('Environment Variables Required:');
-      console.log('- MONGO_URI: MongoDB connection string');
-      console.log('- TWILIO_ACCOUNT_SID: Your Twilio Account SID');
-      console.log('- TWILIO_AUTH_TOKEN: Your Twilio Auth Token');
-      console.log('- TWILIO_PHONE_NUMBER: Your Twilio phone number');
-      console.log('');
-      console.log('Ready to accept SMS requests! 📨');
-    });
+    // app.listen(PORT, '0.0.0.0', () => {
+    //   console.log(`🚀 SMS Backend Server is running on port ${PORT}`);
+    //   console.log(`📱 API Base URL: http://localhost:${PORT}/api`);
+    //   console.log(`🏥 Health Check: http://localhost:${PORT}/api/health`);
+    //   console.log(`📊 Status: http://localhost:${PORT}/api/status`);
+    //   console.log('');
+    //   console.log('Environment Variables Required:');
+    //   console.log('- MONGO_URI: MongoDB connection string');
+    //   console.log('- TWILIO_ACCOUNT_SID: Your Twilio Account SID');
+    //   console.log('- TWILIO_AUTH_TOKEN: Your Twilio Auth Token');
+    //   console.log('- TWILIO_PHONE_NUMBER: Your Twilio phone number');
+    //   console.log('');
+    //   console.log('Ready to accept SMS requests! 📨');
+    // });
     
   } catch (error) {
     console.error('Failed to start server:', error);
