@@ -1,0 +1,135 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.5rem;
+  /* SMS Dashboard Dark Theme */
+  --background: #1e293b; /* slate-800 */
+  --foreground: #f1f5f9; /* slate-100 */
+  --card: #334155; /* slate-700 */
+  --card-foreground: #f1f5f9; /* slate-100 */
+  --popover: #334155; /* slate-700 */
+  --popover-foreground: #f1f5f9; /* slate-100 */
+  --primary: #a3e635; /* lime-400 */
+  --primary-foreground: #1e293b; /* slate-800 */
+  --secondary: #475569; /* slate-600 */
+  --secondary-foreground: #f1f5f9; /* slate-100 */
+  --muted: #475569; /* slate-600 */
+  --muted-foreground: #94a3b8; /* slate-400 */
+  --accent: #a3e635; /* lime-400 */
+  --accent-foreground: #1e293b; /* slate-800 */
+  --destructive: #ef4444; /* red-500 */
+  --border: #475569; /* slate-600 */
+  --input: #334155; /* slate-700 */
+  --ring: #a3e635; /* lime-400 */
+  --success: #65a30d; /* green-600 */
+  --chart-1: #a3e635;
+  --chart-2: #65a30d;
+  --chart-3: #84cc16;
+  --chart-4: #bef264;
+  --chart-5: #d9f99d;
+  --sidebar: #334155;
+  --sidebar-foreground: #f1f5f9;
+  --sidebar-primary: #a3e635;
+  --sidebar-primary-foreground: #1e293b;
+  --sidebar-accent: #475569;
+  --sidebar-accent-foreground: #f1f5f9;
+  --sidebar-border: #475569;
+  --sidebar-ring: #a3e635;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .sms-container {
+    @apply max-w-4xl mx-auto px-4 py-8;
+  }
+  
+  .sms-card {
+    @apply bg-card border border-border rounded-lg p-6 shadow-sm;
+  }
+  
+  .sms-input {
+    @apply w-full px-3 py-2 bg-input border border-border rounded-md text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all duration-200;
+  }
+  
+  .sms-button-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2 rounded-md font-medium transition-all duration-200 hover:scale-105 active:scale-95;
+  }
+  
+  .sms-button-secondary {
+    @apply bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-2 rounded-md font-medium transition-all duration-200 hover:scale-105 active:scale-95;
+  }
+  
+  .sms-progress-bar {
+    @apply w-full bg-muted rounded-full h-2 overflow-hidden;
+  }
+  
+  .sms-progress-fill {
+    @apply h-full bg-gradient-to-r from-primary to-green-600 transition-all duration-300 ease-out;
+  }
+  
+  .sms-status-success {
+    @apply text-green-600;
+  }
+  
+  .sms-status-error {
+    @apply text-destructive;
+  }
+  
+  .sms-animate-pulse {
+    @apply animate-pulse;
+  }
+  
+  .sms-animate-bounce {
+    @apply animate-bounce;
+  }
+}
